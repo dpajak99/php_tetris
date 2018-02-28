@@ -53,7 +53,7 @@
             <a class="nav-link" href="index.php">Strona główna</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="gra.html">Gra</a>
+            <a class="nav-link" href="gra.php">Gra</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?page=ranking">Ranking</a>
@@ -71,66 +71,3 @@
       </div>
     </div>
   </nav>
-
-  <!-- Modal -->
-  <?php 
-    if(isset($_GET['status']) && $_GET['status'] == 'c') {
-      echo "
-            <script>
-              $(document).ready(function(){
-                 $('#exampleModal').modal();
-               });
-            </script>
-          ";
-    }
-  ?>
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Rejestracja</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form enctype="multipart/form-data" action="db/logowanie.php" method="post">
-            <div class="form-group">
-              <?php
-                     if(isset($_GET['error'])) {
-                       echo '<div class="alert alert-danger alert-dismissible">';
-                        if($_GET['error'] == "usernotfound") {
-                          echo "Nie znaleziono użytkownika!";
-                        } else if($_GET['error'] == "wrongpass") {
-                          echo "Błędne hasło!";
-                        }
-                        echo '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div>';
-                      }
-                      ?>
-
-
-                <label for="exampleInputEmail">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail" name="email" value="" aria-describedby="emailHelp" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword">Hasło</label>
-              <input type="password" class="form-control" id="exampleInputPassword" name="password" value="" placeholder="Hasło">
-            </div>
-            <?php
-                      function check() {
-                        if(isset($_GET['page'])) {
-                          return $_GET['page'];
-                        } else {
-                          return '';
-                        }
-                      }
-                     ?>
-              <input type="text" name="CurrPage" value="<?php echo check(); ?>" style="display: none;" />
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Zaloguj się</button>
-              </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>

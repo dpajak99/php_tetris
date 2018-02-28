@@ -6,7 +6,7 @@ session_start();
 	<head>
 		<title>Kurczakowe siły kurczakowej armi kurczakowych znaków</title>
 		<meta charset="UTF-8" />
-		<link rel="Stylesheet" type="text/css" href="style.css" />
+		<link rel="Stylesheet" type="text/css" href="tetris.css" />
 	</head>
 	<body onload="draw()">
 		<?php
@@ -40,11 +40,56 @@ session_start();
 					</div>
 				</div>
 		</center>
-		
+		<div id="stopOverflow">Zatrzymaj</div>
 		<script type="text/javascript" src="script.js">
-		
 			
 		</script>
+		<script>
+			var stopOverflow = document.getElementById('stopOverflow');
+			var keys = [37, 38, 39, 40];
+
+			function preventDefault(e) {
+			  e = e || window.event;
+			  if (e.preventDefault)
+				  e.preventDefault();
+			  e.returnValue = false;  
+			}
+
+			function keydown(e) {
+				for (var i = keys.length; i--;) {
+					if (e.keyCode === keys[i]) {
+						preventDefault(e);
+						return;
+					}
+				}
+			}
+
+			function wheel(e) {
+			  preventDefault(e);
+			}
+
+			function disable_scroll() {
+			  if (window.addEventListener) {
+				  window.addEventListener('DOMMouseScroll', wheel, false);
+			  }
+			  window.onmousewheel = document.onmousewheel = wheel;
+			  document.onkeydown = keydown;
+			  stopOverflow.addEventListener("click", enable_scroll);
+			  stopOverflow.innerHTML = "Włącz scrollowanie";
+			}
+
+			function enable_scroll() {
+				if (window.removeEventListener) {
+					window.removeEventListener('DOMMouseScroll', wheel, false);
+				}
+				window.onmousewheel = document.onmousewheel = document.onkeydown = null;  
+				stopOverflow.addEventListener("click", disable_scroll);
+				stopOverflow.innerHTML = "Wyłącz scrollowanie";
+			}
+			
+			stopOverflow.addEventListener("click", disable_scroll);
+			
+			</script>
 			
 	
 	</body>

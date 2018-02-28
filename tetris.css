@@ -7,27 +7,28 @@ body {
 	height: 600px;
 	margin: 0 auto;
 	width: 700px;
+	font-family: fantasy;
 }
 
 #nextFiguraBOX {
 	background-image: url(img/areaL.jpg);
 	background-repeat: no-repeat;
-	font-size: 16px;
-	height: 140px;
+	font-size: 15px;
+	height: 180px;
 	left: -270px;
 	padding-left: 30px;
 	padding-top: 40px;
 	position: relative;
-	top: -780px;
-	width: 120px;
+	top: -935px;
+	width: 150px;
 }
 
 #pole_gry {
 	background-color: #000;
 	background-image: url(img/blockBG.png);
-	height: 540px;
+	height: 600px;
 	padding: 30px;
-	width: 330px;
+	width: 390px;
 }
 
 #pole_gryALERT {
@@ -44,9 +45,7 @@ body {
 }
 
 #pole_gryALL {
-	background-color: green;
-	height: 600px;
-	width: 390px;
+	
 }
 
 #punkty {
@@ -57,41 +56,47 @@ body {
 	background-image: url(img/areaR.jpg);
 	background-repeat: no-repeat;
 	font-size: 18px;
-	height: 125px;
+	height: 185px;
 	padding-right: 25px;
-	padding-top: 55px;
+	padding-top: 45px;
 	position: relative;
 	right: -270px;
-	top: -600px;
-	width: 125px;
+	top: -750px;
+	width: 150px;
 }
 
 #infoBoxL {
 	background-image: url(img/areaLB.jpg);
 	background-repeat: no-repeat;
-	font-size: 16px;
-	height: 395px;
+	font-size: 12px;
+	height: 420px;
 	padding-left: 25px;
 	padding-top: 25px;
 	position: relative;
 	background-color: yellow;
 	left: -270px;
-	top: -780px;
-	width: 125px;
+	top: -935px;
+	width: 150px;
 }
 
 #infoBoxR {
 	background-image: url(img/areaRB.jpg);
 	background-repeat: no-repeat;
 	background-color: yellow;
-	font-size: 15px;
-	height: 395px;
+	font-size: 14px;
+	height: 420px;
 	padding-right: 25px;
-	padding-top: 25px;
+	padding-top: 0px;
 	position: relative;
 	right: -270px;
-	top: -1200px;
-	width: 125px;
+	top: -1355px;
+	width: 150px;
+}
+
+#stopOverflow {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
 }
 
 .ButtonAgain:active {
