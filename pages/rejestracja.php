@@ -1,74 +1,104 @@
-<br /><br /><br />
-<table style="width:60%; margin: 0 auto; text-align: center;">
-  <tr>
-    <td>Podaj swoje imię:</td>
-    <td>Podaj swoje nazwisko:</td>
-  </tr>
-  <tr>
-    <td style="width:50%">
-      <input type="text" class="form-control" name="name" />
-    </td>
-    <td style="width:50%">
-      <input type="text" class="form-control" name="secondname" />
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" style="padding-top:20px;">Wpisz swój nick:</td>
-  </tr>
-  <tr>
-    <td colspan="2" style="padding-bottom: 20px;">
-      <input type="text" class="form-control" name="nick" />
-    </td>
-  </tr>
-  <tr>
-    <td>Wpisz swój email:</td>
-    <td>Powtórz swój email:</td>
-  </tr>
-  <tr>
-    <td style="width:50%">
-      <input type="email" class="form-control" name="email" id="email1" />
-    </td>
-    <td style="width:50%">
-      <input type="email" class="form-control" name="email" id="email2" />
-    </td>
-  </tr>
-  <tr>
-    <td style="padding-top: 20px;">Podaj hasło</td>
-    <td rowspan="5" id="checkPass"> </td>
-  </tr>
-  <tr>
-    <td>
-      <input type="password" class="form-control" name="password" id="pass1">
-    </td>
-  </tr>
-  <tr>
-    <td>Powtórz hasło</td>
-  </tr>
-  <tr>
-    <td>
-      <input type="password" class="form-control" name="password" id="pass2">
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="right">
-      <table>
-        <tr>
-          <td>Ilość licencji:</td>
-          <td>
-            <input type="text" style="width: 50px" maxlength="3" id="ilosc" />
-          </td>
-        </tr>
-        <tr>
-          <td>Koszt licencji:</td>
-          <td>
-            <div id="koszt" </td>
-        </tr>
-        <tr>
-          <td colspan="2" align="right">
-            <button class="btn btn-success" id="register">Zarejestruj się</button>
-          </td>
-        </tr>
-      </table>
-      </td>
-  </tr>
-</table>
+<div class="container">
+</br></br>
+<?php
+  if(isset($_GET['user']) && $_GET['user'] == 'added') {
+    echo "<div class='alert alert-success' role='alert'>";
+    echo "Konto zostało pomyślnie dodane!";
+    echo "</div>";
+  }
+  if(isset($_GET['user']) && $_GET['user'] == 'error') {
+    echo "<div class='alert alert-danger' role='alert'>";
+    echo "Podany nick lub e-mail już istnieje!";
+    echo "</div>";
+  }
+?>
+            <div class="modal-body">
+                    <form enctype="multipart/form-data" action="db/zarejestruj.php" method="post">
+                            <div class="form-group">
+                             <label for="Imie">Imię</label>
+                             <input type="text" class="form-control" id="Imie" name="imie" value="" aria-describedby="emailHelp" placeholder="Imię">
+                            </div>
+                            <div class="form-group">
+                             <label for="Nazwisko">Nazwisko</label>
+                             <input type="text" class="form-control" id="Nazwisko" name="nazwisko" value="" aria-describedby="emailHelp" placeholder="Nazwisko">
+                            </div>
+                            <div class="form-group">
+                             <label for="Nick">Nick</label>
+                             <input type="text" class="form-control" id="Nick" name="nick" value="" aria-describedby="emailHelp" placeholder="Nick">
+                             <div style="font-size: 13px; color: darkgray;" ></div>
+                            </div>
+                            <div class="form-group">
+                             <label for="Email">Email</label>
+                             <input type="email" class="form-control" id="Email" name="email" value="" aria-describedby="emailHelp" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                             <label for="Password">Hasło</label>
+                             <input type="password" class="form-control" id="Password" name="haslo" value="" placeholder="Hasło">
+                            </div>
+                            <div class="form-group">
+                             <label for="Password">Potwierdź hasło</label>
+                             <input type="password" class="form-control" id="Password1" name="haslo" value="" placeholder="Hasło">
+                            </div>
+                            <div class="modal-footer">
+                              <input type="submit" class="btn btn-primary" id="przycisk" value="Zapisz się" />&nbsp;&nbsp;
+                              <input type="reset" class="btn btn-primary" id="wyczysc" value="Wyczyść" name="zeruj">
+                            </div>
+                    </form>
+             </div>
+           </div>
+         </div>
+        </div>
+  <!-- ////////////////////////////////////////////////////////////////////          skrypt          ////////////////////////////////////////////////////////////////////  -->
+  <script>
+    var imie = document.getElementById('Imie');
+    var nazwisko = document.getElementById('Nazwisko');
+    var nick = document.getElementById('Nick');
+    var email = document.getElementById('Email');
+    var Password = document.getElementById('Password');
+    var Password1 = document.getElementById('Password1');
+    var wyslij = document.getElementById('przycisk');
+    var wyczysc = document.getElementById('wyczysc');
+    
+    wyczysc.addEventListener('click', zamianaNaNiewidoczne);
+    function zamianaNaNiewidoczne(){
+      wyslij.disabled=true;
+    }
+    
+    
+    wyslij.disabled=true;
+    
+    function SprawdzCzyPusta (){
+      if (nick.value == "" || imie.value == "" || nazwisko.value == "" || email.value == "" || Password.value == "" || Password1.value == "" ){
+        wyslij.disabled=true;
+      }else{
+        wyslij.disabled= false;
+      }
+
+    }
+
+    function checkMail(to) {
+        if(Password.value != Password1.value) {
+          Password1.style.backgroundColor = "pink";
+          wyslij.disabled=true;
+        } else if(Password.value == Password1.value) {
+          Password1.style.backgroundColor = "lightgreen";
+          SprawdzCzyPusta ();
+        }
+      }
+
+      Password.addEventListener('keyup', checkMail);
+      Password1.addEventListener('keyup', checkMail);
+      imie.addEventListener('keyup', SprawdzCzyPusta);
+      nazwisko.addEventListener('keyup', SprawdzCzyPusta);
+      nick.addEventListener('keyup', SprawdzCzyPusta);
+      email.addEventListener('keyup', SprawdzCzyPusta);
+
+    
+  </script>
+
+ <!-- ////////////////////////////////////////////////////////////////////          PHP          ////////////////////////////////////////////////////////////////////  -->
+<?php
+
+
+
+?>

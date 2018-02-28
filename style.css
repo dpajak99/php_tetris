@@ -1,0 +1,114 @@
+body {
+	background-color: #eee;
+	font-family: fantasy;
+}
+
+#gra {
+	height: 600px;
+	margin: 0 auto;
+	width: 700px;
+}
+
+#nextFiguraBOX {
+	background-image: url(img/areaL.jpg);
+	background-repeat: no-repeat;
+	font-size: 16px;
+	height: 140px;
+	left: -270px;
+	padding-left: 30px;
+	padding-top: 40px;
+	position: relative;
+	top: -780px;
+	width: 120px;
+}
+
+#pole_gry {
+	background-color: #000;
+	background-image: url(img/blockBG.png);
+	height: 540px;
+	padding: 30px;
+	width: 330px;
+}
+
+#pole_gryALERT {
+	background-image: url(img/alertBG.jpg);
+	background-repeat: no-repeat;
+	bottom: 330px;
+	font-size: 18px;
+	height: 150px;
+	padding-top: 80px;
+	position: relative;
+	visibility: hidden;
+	width: 330px;
+	z-index: 1;
+}
+
+#pole_gryALL {
+	background-color: green;
+	height: 600px;
+	width: 390px;
+}
+
+#punkty {
+	font-size: 50px;
+}
+
+#punktyBOX {
+	background-image: url(img/areaR.jpg);
+	background-repeat: no-repeat;
+	font-size: 18px;
+	height: 125px;
+	padding-right: 25px;
+	padding-top: 55px;
+	position: relative;
+	right: -270px;
+	top: -600px;
+	width: 125px;
+}
+
+#infoBoxL {
+	background-image: url(img/areaLB.jpg);
+	background-repeat: no-repeat;
+	font-size: 16px;
+	height: 395px;
+	padding-left: 25px;
+	padding-top: 25px;
+	position: relative;
+	background-color: yellow;
+	left: -270px;
+	top: -780px;
+	width: 125px;
+}
+
+#infoBoxR {
+	background-image: url(img/areaRB.jpg);
+	background-repeat: no-repeat;
+	background-color: yellow;
+	font-size: 15px;
+	height: 395px;
+	padding-right: 25px;
+	padding-top: 25px;
+	position: relative;
+	right: -270px;
+	top: -1200px;
+	width: 125px;
+}
+
+.ButtonAgain:active {
+	font-weight:700;
+}
+
+.ButtonAgain:hover {
+	color: #F0F;
+	cursor: pointer;
+}
+
+#startstop {
+	cursor: pointer;
+	user-select: none;
+	background-color: #888;
+	font-size: 18px;
+	padding: 5px;
+	border: solid 1px black;
+	border-radius: 5px;
+}
