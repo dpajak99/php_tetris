@@ -21,7 +21,7 @@ try{
         $row_count = $check->rowCount(); 
         if ($row_count == 1) {
             echo "Hasło prawidłowe!<br />Pomyślnie zalogowano!<br /><br />";
-            $zapytanie = $pdo->query("SELECT id_gracza, imie, nazwisko, nick, email, data_dolaczenia FROM gracz WHERE email = '".$email."' AND haslo = '".$haslo."';");  
+            $zapytanie = $pdo->query("SELECT id_gracza, imie, nazwisko, nick, email, data_dolaczenia, id_avatar FROM gracz WHERE email = '".$email."' AND haslo = '".$haslo."';");  
             foreach($zapytanie as $wiersz){
                 $_SESSION['id_user'] = $wiersz['id_gracza'];
                 $_SESSION['imie'] = $wiersz['imie'];
@@ -29,6 +29,7 @@ try{
                 $_SESSION['nick'] = $wiersz['nick'];
                 $_SESSION['email'] = $wiersz['email'];
                 $_SESSION['data_dolaczenia'] = $wiersz['data_dolaczenia'];
+                $_SESSION['id_avatar'] = $wiersz['id_avatar'];
             }
             $_SESSION['active'] = true;
             

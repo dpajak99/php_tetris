@@ -14,13 +14,20 @@
     body {
       overflow-y: scroll;
     }
+
+    .editProfileButton {
+      cursor: pointer;
+    }
+
+    .avatarmin {
+      width: 100%;
+    }
   </style>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
-  <link rel="Stylesheet" type="text/css" href="pages/style.css" />
 
   <!-- Custom fonts for this template -->
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

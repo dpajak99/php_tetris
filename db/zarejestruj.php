@@ -12,9 +12,9 @@
       $nazwisko =  $_POST['nazwisko'];
       $email = $_POST['email'];
       $haslo = $_POST['haslo'];
-      $data = date("Y-m-d G:i");
+      $data = date("Y-m-d G:i:s");
      
-      $zapytanie = $pdo->prepare("insert into gracz values( null,'$imie','$nazwisko','$nick','$haslo','$email','$data')");   
+      $zapytanie = $pdo->prepare("insert into gracz values( null,'$imie','$nazwisko','$nick','$haslo','$email','$data', '1')");   
 
       $test = $zapytanie->execute();
 
