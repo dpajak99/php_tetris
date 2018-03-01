@@ -19,11 +19,14 @@ session_start();
 				<div id="gra">
 					<div id="pole_gryALL">
 						<div id="pole_gry"></div>
-						<div id="pole_gryALERT"></div>
+						<div id="pole_gryALERT">
+							<form enctype='multipart/form-data' action='db/addRanking.php' method='post'>
+							Wynik: <font id="punktyval1"></font> <input type='text' value='' name='punkty' id="punktyval2" style="display: none;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type='submit' style='background-color: rgba(0,0,0,0); border: none;' class='ButtonAgain'><b>⟲</b>&nbsp;&nbsp;Zapisz wynik</button></form>
+						</div>
 					</div>
 					<div id="punktyBOX">
 						Twoje punkty:
-						<div id="punkty">000</div>
+						<div id="punkty">0000</div>
 					</div>
 					<div id="nextFiguraBOX">
 						Następna figura:
@@ -40,7 +43,7 @@ session_start();
 					</div>
 				</div>
 		</center>
-		<div id="stopOverflow">Zatrzymaj</div>
+		<div id="stopOverflow">Wyłącz scrollowanie</div>
 		<script type="text/javascript" src="script.js">
 			
 		</script>

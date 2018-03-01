@@ -23,9 +23,5 @@
         include('phpscripts/editprofile.php');
       ?>
     </div>
-    <div class="col">
-      Najwyższy wynik: <br />
-      Ostatni wynik: 
-    </div>
   </div>
 </div>

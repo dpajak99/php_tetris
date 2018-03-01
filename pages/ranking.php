@@ -5,12 +5,12 @@
 <?php
 try{
     $pdo = new PDO('mysql:host=localhost;dbname=tetris','root');
-    $sortuj = $pdo->query("select gracz.nick, sesja.punkty from gracz, sesja where gracz.id_gracza=sesja.id_gracza order by sesja.punkty desc");
+    $sortuj = $pdo->query("select gracz.nick, sesja.punkty, sesja.data_sesji from gracz, sesja where gracz.id_gracza=sesja.id_gracza order by sesja.punkty desc");
     echo "<div class='container'><table class='table table-hover table-dark'>";
-    echo "<thead class='thead-dark'> <tr> <th scope='col'>#</th> <th scope='col'>Nick</th> <th scope='col'>Punkty</th ></tr> </thead><tbody>";
+    echo "<thead class='thead-dark'> <tr> <th scope='col'>#</th> <th scope='col'>Nick</th> <th scope='col'>Punkty</th > <th scope='col'>Data i godzina</th > </tr> </thead><tbody>";
     $i = 1;
     foreach($sortuj as $row){
-        echo '<tr><td>'.($i++).'</td><td>'.$row['nick'].'</td><td>'.$row['punkty'].'</td></tr>';
+        echo '<tr><td>'.($i++).'</td><td>'.$row['nick'].'</td><td>'.$row['punkty'].'</td><td>'.$row['data_sesji'].'</td></tr>';
     }
     echo "</tbody></table></div>";
     $pdo = null;

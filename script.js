@@ -111,7 +111,12 @@ function wyborFigury(){
 function sprawdzStart() {
 	if(tabTetris[osum + szer] == 2 || tabTetris[tsum + szer] == 2 || tabTetris[thsum + szer] == 2 || tabTetris[fsum + szer] == 2) {
 		document.getElementById("pole_gryALERT").style.visibility = "visible";
-		document.getElementById("pole_gryALERT").innerHTML = "Wynik: " + punkty + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font  onClick='window.location.reload(true);' class='ButtonAgain'><b>⟲</b>&nbsp;&nbsp;Jeszcze raz</font>";
+		var punktyval1 = document.getElementById('punktyval1');
+		var punktyval2 = document.getElementById('punktyval2');
+		
+		punktyval1.innerHTML = punkty;
+		punktyval2.value = punkty;
+		
 		clearInterval(z);
 		lose = true;
 	}
@@ -247,10 +252,12 @@ function prostaFunkcja() {
 
 function dodajPunkty() {
 	if(punkty < 10) {
-		punktyBox.innerHTML = "00" + punkty;
+		punktyBox.innerHTML = "000" + punkty;
 	} else if(punkty < 100) {
-		punktyBox.innerHTML = "0" + punkty;
+		punktyBox.innerHTML = "00" + punkty;
 	} else if(punkty < 1000) {
+		punktyBox.innerHTML = "0" + punkty;
+	} else if(punkty < 10000) {
 		punktyBox.innerHTML =  punkty;
 	}
 }
@@ -372,7 +379,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum + szer + 1;
-								tsum = tsum;
 								thsum = thsum - szer - 1;
 								fsum = fsum - 2 * szer - 2;
 								
@@ -386,7 +392,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum + szer + 1;
-								tsum = tsum;
 								thsum = thsum - szer - 1;
 								fsum = fsum - 2;
 								
@@ -400,7 +405,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum + szer + 1;
-								tsum = tsum;
 								thsum = thsum - szer - 1;
 								fsum = fsum - 2 * szer ;
 								
@@ -415,7 +419,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum - szer - 1;
-								tsum = tsum;
 								thsum = thsum - szer + 1;
 								fsum = fsum + szer - 1;
 								
@@ -430,7 +433,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum - szer + 1;
-								tsum = tsum;
 								thsum = thsum - szer - 1;
 								fsum = fsum - 2;
 								
@@ -443,7 +445,6 @@ window.addEventListener('keydown', function(event) {
 								
 								zamiana0();
 								
-								osum = osum;
 								tsum = tsum - szer - 1;
 								thsum = thsum + 2 ;
 								fsum = fsum - szer + 1;
@@ -463,7 +464,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum - szer - 1;
-								tsum = tsum;
 								thsum = thsum + szer + 1;
 								fsum = fsum + 2 * szer + 2;
 								
@@ -477,7 +477,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum + szer - 1;
-								tsum = tsum;
 								thsum = thsum - szer + 1;
 								fsum = fsum - 2 * szer;
 								
@@ -490,7 +489,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum + szer - 1;
-								tsum = tsum;
 								thsum = thsum - szer + 1;
 								fsum = fsum + 2  ;
 								
@@ -505,7 +503,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum - szer + 1;
-								tsum = tsum;
 								thsum = thsum + szer + 1;
 								fsum = fsum - szer - 1;
 								
@@ -521,7 +518,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum + szer - 1;
-								tsum = tsum;
 								thsum = thsum + szer + 1;
 								fsum = fsum + 2;
 								
@@ -534,9 +530,6 @@ window.addEventListener('keydown', function(event) {
 								
 								zamiana0();
 								
-								console.log((thsum + 2)% szer);
-								
-								osum = osum;
 								tsum = tsum  + szer + 1;
 								thsum = thsum - 2;
 								fsum = fsum + szer - 1;
@@ -571,7 +564,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum - szer - 1;
-								tsum = tsum;
 								thsum = thsum + szer + 1;
 								fsum = fsum + 2 ;
 									
@@ -585,7 +577,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum - szer - 1;
-								tsum = tsum;
 								thsum = thsum + szer + 1;
 								fsum = fsum + 2 * szer ;
 								
@@ -600,7 +591,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum + szer + 1;
-								tsum = tsum;
 								thsum = thsum + szer - 1;
 								fsum = fsum - szer + 1;
 								
@@ -614,7 +604,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum - szer + 1;
-								tsum = tsum;
 								thsum = thsum - szer - 1;
 								fsum = fsum - 2;
 								
@@ -627,7 +616,6 @@ window.addEventListener('keydown', function(event) {
 								
 								zamiana0();
 								
-								osum = osum;
 								tsum = tsum - szer - 1;
 								thsum = thsum + 2 ;
 								fsum = fsum - szer + 1;
@@ -647,7 +635,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum - szer - 1;
-								tsum = tsum;
 								thsum = thsum + szer + 1;
 								fsum = fsum + 2 * szer + 2;
 								
@@ -661,7 +648,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum - szer + 1;
-								tsum = tsum;
 								thsum = thsum + szer - 1;
 								fsum = fsum + 2 * szer;
 								
@@ -675,7 +661,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum - szer + 1;
-								tsum = tsum;
 								thsum = thsum + szer - 1;
 								fsum = fsum - 2 ;
 								
@@ -690,7 +675,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum + szer - 1;
-								tsum = tsum;
 								thsum = thsum - szer - 1;
 								fsum = fsum + szer + 1;
 								
@@ -704,7 +688,6 @@ window.addEventListener('keydown', function(event) {
 								zamiana0();
 								
 								osum = osum + szer - 1;
-								tsum = tsum;
 								thsum = thsum + szer + 1;
 								fsum = fsum + 2;
 								
@@ -717,9 +700,6 @@ window.addEventListener('keydown', function(event) {
 								
 								zamiana0();
 								
-								console.log((thsum + 2)% szer);
-								
-								osum = osum;
 								tsum = tsum  + szer + 1;
 								thsum = thsum - 2;
 								fsum = fsum + szer - 1;

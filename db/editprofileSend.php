@@ -17,7 +17,22 @@ try{
     $test = $zapytanie->execute();
 
             if ($test) {
-              header("Location: ../index.php?page=profile&user=added");
+				$_SESSION = array();
+				session_destroy();
+				session_start();
+				$zapytanie = $pdo->query("SELECT id_gracza, imie, nazwisko, nick, email, data_dolaczenia, id_avatar FROM gracz WHERE email = '".$newEmail."' AND haslo = '".$newPassword."';");  
+				foreach($zapytanie as $wiersz){
+					$_SESSION['id_user'] = $wiersz['id_gracza'];
+					$_SESSION['imie'] = $wiersz['imie'];
+					$_SESSION['nazwisko'] = $wiersz['nazwisko'];
+					$_SESSION['nick'] = $wiersz['nick'];
+					$_SESSION['email'] = $wiersz['email'];
+					$_SESSION['data_dolaczenia'] = $wiersz['data_dolaczenia'];
+					$_SESSION['id_avatar'] = $wiersz['id_avatar'];
+				}
+					$_SESSION['active'] = true;
+            
+				header("Location: ../index.php?page=profile");
             }else{
               header("Location: ../index.php?page=profile&user=error");
             }
