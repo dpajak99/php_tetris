@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="width: 60%">
 </br></br>
 <?php
   if(isset($_GET['user']) && $_GET['user'] == 'added') {
@@ -14,23 +14,41 @@
 ?>
             <div class="modal-body">
                     <form enctype="multipart/form-data" action="db/zarejestruj.php" method="post">
-                            <div class="form-group">
-                             <label for="Imie">Imię</label>
-                             <input type="text" class="form-control" id="Imie" name="imie" value="" aria-describedby="emailHelp" placeholder="Imię">
+                            <div class="row">
+                              <div class="col">
+                              <label for="Imie">Imię</label>
+                              </div>
+                              <div class="col">
+                              <label for="Nazwisko">Nazwisko</label>
+                              </div>
+                             </div>
+                            <div class="row">
+                            <div class="col">
+                            <input type="text" class="form-control" id="Imie" name="imie" value="" aria-describedby="emailHelp" placeholder="Imię">
                             </div>
-                            <div class="form-group">
-                             <label for="Nazwisko">Nazwisko</label>
-                             <input type="text" class="form-control" id="Nazwisko" name="nazwisko" value="" aria-describedby="emailHelp" placeholder="Nazwisko">
-                            </div>
-                            <div class="form-group">
+                            <div class="col">
+                            <input type="text" class="form-control" id="Nazwisko" name="nazwisko" value="" aria-describedby="emailHelp" placeholder="Nazwisko">
+                            <br /> </div>
+                             </div>
+                            <div class="row">
+                            <div class="col">
                              <label for="Nick">Nick</label>
-                             <input type="text" class="form-control" id="Nick" name="nick" value="" aria-describedby="emailHelp" placeholder="Nick">
-                             <div style="font-size: 13px; color: darkgray;" ></div>
                             </div>
+                            <div class="col-8">
+                              <label for="Email">Email</label>
+                            </div>
+                            </div>
+                            <div class="row">
+                            <div class="col">
+                            <input type="text" class="form-control" id="Nick" name="nick" value="" aria-describedby="emailHelp" placeholder="Nick">
+                            </div>
+                            <div class="col-8">
+                            <input type="email" class="form-control" id="Email" name="email" value="" aria-describedby="emailHelp" placeholder="Email">
+                            </div>
+                            </div>
+                             
                             <div class="form-group">
-                             <label for="Email">Email</label>
-                             <input type="email" class="form-control" id="Email" name="email" value="" aria-describedby="emailHelp" placeholder="Email">
-                            </div>
+                              </div>
                             <div class="form-group">
                              <label for="Password">Hasło</label>
                              <input type="password" class="form-control" id="Password" value="" placeholder="Hasło">

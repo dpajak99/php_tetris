@@ -37,9 +37,9 @@
 
   <!-- Custom styles for this template -->
   <link href="css/clean-blog.min.css" rel="stylesheet">
-  <link href='css/nasze.css' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href='css/nasze.css' rel='stylesheet' type='text/css'>
 
 
 </head>

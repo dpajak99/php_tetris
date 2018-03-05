@@ -1,5 +1,5 @@
 <!-- Modal -->
-  <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -16,12 +16,12 @@
                 <div class="col"> Nazwisko:<br /></div>
             </div>
             <div class="row">
-                <div class="col"><input class="form-control" style="width: 100%" type='text' name="edit_imie" value="<?php echo $_SESSION['imie']; ?>" placeholder="<?php echo $_SESSION['imie']; ?>" /><br /><br /></div>
-                <div class="col"><input class="form-control" style="width: 100%" type='text' name="edit_nazwisko" value="<?php echo $_SESSION['nazwisko']; ?>" placeholder="<?php echo $_SESSION['nazwisko']; ?>" /><br /><br /></div>
+                <div class="col"><input class="form-control" style="width: 100%" type='text' id="edit_imie" name="edit_imie" value="<?php echo $_SESSION['imie']; ?>"  /><br /><br /></div>
+                <div class="col"><input class="form-control" style="width: 100%" type='text' id="edit_nazwisko" name="edit_nazwisko" value="<?php echo $_SESSION['nazwisko']; ?>"  /><br /><br /></div>
             </div>
             <div class="row">
                 <div class="col">Email:</div>
-                 <div class="col"> <input class="form-control" type='text' name="edit_email" value="<?php echo $_SESSION['email']; ?>" placeholder="<?php echo $_SESSION['email']; ?>" /> <br /><br /></div>
+                 <div class="col"> <input class="form-control" type='text' id="edit_email" name="edit_email" value="<?php echo $_SESSION['email']; ?>" /> <br /><br /></div>
             </div>
             <div class="row">
                 <div class="col">Stare hasło:</div>
@@ -29,7 +29,7 @@
             </div>
             <div class="row">
                 <div class="col">Nowe hasło:</div>
-                 <div class="col"> <input class="form-control" type='password' id="new_pass" value="new_pass" placeholder="Nowe hasło" /> </div>
+                 <div class="col"> <input class="form-control" type='password' id="new_pass" value="" placeholder="Nowe hasło" /> </div>
             </div>
             <div class="row">
                 <div class="col">Powtórz hasło:</div>
@@ -50,20 +50,24 @@
             <input type="text" name="idavatarsend" id="idavatarsend" style="display: none;"/>
             <div class="row">
                 <div class="col"></div>
-                <div class="col"><button type="submit" class="btn btn-primary"> Aktualizuj </button></div>
+                <div class="col"><button type="submit" id="przycisk56" class="btn btn-primary"> Aktualizuj </button></div>
             </div>
+        </div>
           </form>
           <script type="text/javascript">
           var stareHaslo = document.getElementById('old_password');
           var pass1 = document.getElementById('new_pass');
           var pass2 = document.getElementById('new_pass2');
+          var edit_imie = document.getElementById('edit_imie');
+          var edit_nazwisko = document.getElementById('edit_nazwisko') ;
+          var edit_email = document.getElementById('edit_email');
+          var przycisk56 = document.getElementById('przycisk56');
+          var edytuj = document.getElementById('edytuj');
+          var pf1=true;
+          var pf2=true;
+          var pf3=true;
           
-          
-          stareHaslo.addEventListener('keyup', checkNewPass);
-          pass1.addEventListener('keyup', sprawdzPoprawnosc);
-          pass2.addEventListener('keyup', sprawdzPoprawnosc);
-
-          
+          przycisk56.disabled=true;
 
             function checkNewPass() {
                 stareHaslo = document.getElementById('old_password');
@@ -83,8 +87,10 @@
                             //alert('<?php echo $haslo; ?>');
                                 if( stareHaslo.value != '<?php echo $haslo; ?>') {
                                     stareHaslo.style.backgroundColor = 'red';
+                                    pf1 = true;
                                 } else if(stareHaslo.value == '<?php echo $haslo; ?>') {
                                     stareHaslo.style.backgroundColor = 'lightgreen';
+                                    pf1 = false;
                                 }
                         <?php
 
@@ -102,8 +108,10 @@
 
                 if( pass1.value != pass2.value) {
                     pass2.style.backgroundColor = 'red';
+                    pf2 = true;
                 } else if(pass1.value == pass2.value) {
-                  pass2.style.backgroundColor = 'lightgreen';
+                    pass2.style.backgroundColor = 'lightgreen';
+                    pf2 = false;
                }
             }
             var stat = 0;
@@ -135,6 +143,34 @@
                     stat = 0;
                 }
             }
+                
+
+        function checkAll(){
+            if(stareHaslo.value == "" || pass1.value == "" || pass2.value == "" || edit_imie.value == "" || edit_nazwisko.value == "" || edit_email.value == ""){
+                pf3 = true;
+            }
+            else{
+                pf3 = false;
+            }
+        }
+        
+        function pf(){
+            if(pf1 == false && pf2 == false && pf3 == false){
+                przycisk56.disabled = false;
+            } else {
+                przycisk56.disabled = true;
+            }
+        }
+            stareHaslo.addEventListener('keyup',checkAll);
+            pass1.addEventListener('keyup',checkAll);
+            pass2.addEventListener('keyup',checkAll);
+            edit_imie.addEventListener('keyup',checkAll);
+            edit_nazwisko.addEventListener('keyup',checkAll);
+            edit_email.addEventListener('keyup',checkAll);
+            stareHaslo.addEventListener('keyup', checkNewPass);
+            pass1.addEventListener('keyup', sprawdzPoprawnosc);
+            pass2.addEventListener('keyup', sprawdzPoprawnosc);
+            document.addEventListener('keyup',pf);
 
           </script>
         </div>

@@ -1,7 +1,13 @@
-.profileTable {
-    
+.tresc {
+    width: 60%; 
+    text-align: center;
 }
 
-.testpajak {
-    color:red;
+.row {
+    text-align: left;
+}
+
+.avRanking {
+    width: 40px;
+    height: 40px;
 }

@@ -23,9 +23,12 @@ if (isset($_GET['page']) && $_GET['page'] != ''){
 if(!isset($_GET['page']) || $_GET['page'] == ''){ //|| $_GET['page'] == ''
     $plikZTrescia = "welcome.php";
     include_once($plikZTrescia);
-    include_once("alert.php");
+    if(isset($_GET['access']) && $_GET['access'] == 'denied') {
+        echo '<div class="alert alert-danger">Error: 404! Strony nie znaleziono</div>'; 
+    }
+    echo '</div>';
 }
 
 //Footer
-include_once("footer.php");
+include_once("pages/footer.php");
 ?>

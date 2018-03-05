@@ -1,14 +1,22 @@
-<?php
-session_start();
-?>
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<title>Kurczakowe siły kurczakowej armi kurczakowych znaków</title>
 		<meta charset="UTF-8" />
 		<link rel="Stylesheet" type="text/css" href="tetris.css" />
+		<link rel="Stylesheet" type="text/css" href="css/nasze.css" />
 	</head>
 	<body onload="draw()">
+	<?php
+		session_start();
+		if(!isset($_SESSION['active']) || $_SESSION['active'] != 'true') {
+			header('Location: index.php?access=denied');
+		} else {
+
+		
+		?>
 		<?php
 			include_once("navLog.php");
 			include_once("pages/header1.php");
@@ -44,6 +52,9 @@ session_start();
 				</div>
 		</center>
 		<div id="stopOverflow">Wyłącz scrollowanie</div>
+		<?php
+		}
+		?>
 		<script type="text/javascript" src="script.js">
 			
 		</script>

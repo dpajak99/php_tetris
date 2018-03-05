@@ -1,5 +1,12 @@
-<div class="container" style="width: 60%;">
+<div class="container tresc">
   <div class="row">
+    <?php
+    if(!isset($_SESSION['active']) || $_SESSION['active'] != 'true') {
+      header('Location: index.php?access=denied');
+    } else {
+
+    
+    ?>
     <div class="col" style="text-align: center;">
       <?php
         include('phpscripts/checkAvatar.php');
@@ -13,15 +20,24 @@
       <h6><?php echo $_SESSION['imie'] ." ". $_SESSION['nazwisko'] ;?></h6><br />
 
       <h6><?php echo $_SESSION['email']."<br />";?></h6>
+      
     </div>
   </div>
   <div class="row">
-    <div class="col profileTable">
+    <div class="col">
       <font size="3">Dołączył dnia: <?php echo $_SESSION['data_dolaczenia']; ?></font><br />
       <b class="editProfileButton" data-toggle="modal" data-target="#editProfile">Edytuj profil</b>
       <?php
         include('phpscripts/editprofile.php');
       ?>
     </div>
-  </div>
+    <div class="col">
+      <h6>Maksymalny wynik gracza: <b><?php echo $_SESSION['max_punkty'];?></b></h6>
+    </div>
+    </div>
+    </div>
+    <?php
+    }
+    ?>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 </div>
