@@ -32,7 +32,9 @@
       ?>
     </div>
     <div class="col">
+    <br /><br /><br />
       <h6>Maksymalny wynik gracza: <b><?php echo $_SESSION['max_punkty'];?></b></h6>
+      <h6><a href="index.php?page=historia">Historia gier</a></h6>
     </div>
     </div>
     </div>

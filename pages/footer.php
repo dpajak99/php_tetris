@@ -1,9 +1,11 @@
     
-    <div  style="width: 100%; height: 75px; border-top: solid 2px #222; text-align: center; font-size: 12px; background-color: #555">
-      <b>Strona stworzona przez</b> <br />
-      Marcina Podrazę<br />
-      Roberta Małka<br />
+    <div class='footer'>
+     <a href="index.php?page=kontakt" class="contact">Kontakt</a></br /></br />
+      <b class="footerNag">Strona stworzona przez</b> <br />
+      Marcina Podraza<br />
+      Roberta Małek<br />
       Dominka Pająk<br />
+      <su class="copyright"> © Praktyki 2018</sub>
     </div>
     
     <script src="vendor/jquery/jquery.min.js"></script>

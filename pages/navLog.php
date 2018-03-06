@@ -39,12 +39,23 @@
   <link href="css/clean-blog.min.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <?php
+    if(isset($gra) && $gra == 'tak') {
+      echo '<link rel="Stylesheet" type="text/css" href="tetris.css" />';
+    }
+  ?>
   <link href='css/nasze.css' rel='stylesheet' type='text/css'>
 
 
 </head>
+<?php
+if(isset($gra) && $gra == 'tak') {
+  echo '<body onload="draw()">';
+} else {
+  echo '<body>';
+}
+?>
 
-<body style="background-color:#777;">
 
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">

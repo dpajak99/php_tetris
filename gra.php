@@ -1,14 +1,3 @@
-
-
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Kurczakowe siły kurczakowej armi kurczakowych znaków</title>
-		<meta charset="UTF-8" />
-		<link rel="Stylesheet" type="text/css" href="tetris.css" />
-		<link rel="Stylesheet" type="text/css" href="css/nasze.css" />
-	</head>
-	<body onload="draw()">
 	<?php
 		session_start();
 		if(!isset($_SESSION['active']) || $_SESSION['active'] != 'true') {
@@ -18,7 +7,8 @@
 		
 		?>
 		<?php
-			include_once("navLog.php");
+			$gra = 'tak';
+			include_once("pages/navLog.php");
 			include_once("pages/header1.php");
 		?>
 		<center>
@@ -51,7 +41,7 @@
 					</div>
 				</div>
 		</center>
-		<div id="stopOverflow">Wyłącz scrollowanie</div>
+		<div id="stopOverflow"><img src='img/stopScroll.png' class='modifyScrollButton'/></div>
 		<?php
 		}
 		?>
@@ -88,8 +78,10 @@
 			  }
 			  window.onmousewheel = document.onmousewheel = wheel;
 			  document.onkeydown = keydown;
+			  
+			  stopOverflow.innerHTML = "<img src='img/startScroll.png' class='modifyScrollButton'/>";
+			  stopOverflow.removeEventListener('click', disable_scroll, false);
 			  stopOverflow.addEventListener("click", enable_scroll);
-			  stopOverflow.innerHTML = "Włącz scrollowanie";
 			}
 
 			function enable_scroll() {
@@ -97,8 +89,10 @@
 					window.removeEventListener('DOMMouseScroll', wheel, false);
 				}
 				window.onmousewheel = document.onmousewheel = document.onkeydown = null;  
+				
+				stopOverflow.innerHTML = "<img src='img/stopScroll.png' class='modifyScrollButton'/>";
+				stopOverflow.removeEventListener('click', enable_scroll, false);
 				stopOverflow.addEventListener("click", disable_scroll);
-				stopOverflow.innerHTML = "Wyłącz scrollowanie";
 			}
 			
 			stopOverflow.addEventListener("click", disable_scroll);

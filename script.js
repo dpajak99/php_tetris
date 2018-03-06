@@ -19,6 +19,8 @@ var tsumpjed;
 var thsumpjed;
 var fsumpjed;
 
+var poziom = 1;
+
 var osummjed;
 var tsummjed;
 var thsummjed;
@@ -32,6 +34,55 @@ var fsummjed;
 /*RESZTA TO FUNKCJE*/
 
 var lose = false;
+
+function przyspiesz(){
+
+	if ( punkty > 100  && poziom == 1 ){
+		clearInterval(z);
+		gameSpeed -= 80;
+		poziom ++;
+		z = setInterval(move,gameSpeed);
+	}else if ( punkty > 200 && poziom == 2 ){
+		clearInterval(z);
+		gameSpeed -= 80;
+		poziom ++;
+		z = setInterval(move,gameSpeed);
+	}
+	else if ( punkty > 500  && poziom == 3 ){
+		clearInterval(z);
+		gameSpeed -= 80;
+		poziom ++;
+		z = setInterval(move,gameSpeed);
+	}else if ( punkty > 1000 && poziom == 4 ){
+		clearInterval(z);
+		gameSpeed -= 80;
+		poziom ++;
+		z = setInterval(move,gameSpeed);
+	}else if ( punkty > 1500  && poziom == 5 ){
+		clearInterval(z);
+		gameSpeed -= 80;
+		poziom ++;
+		z = setInterval(move,gameSpeed);
+	}
+	else if ( punkty > 2500  && poziom == 6 ){
+		clearInterval(z);
+		gameSpeed -= 80;
+		poziom ++;
+		z = setInterval(move,gameSpeed);
+	}
+	else if ( punkty > 4000  && poziom == 7 ){
+		clearInterval(z);
+		gameSpeed -= 80;
+		poziom ++;
+		z = setInterval(move,gameSpeed);
+	}
+	else if ( punkty > 5000 && poziom == 8 ){
+		clearInterval(z);
+		gameSpeed -= 80;
+		poziom ++;
+		z = setInterval(move,gameSpeed);
+	}
+}
 
 function Figury(figura) {
 
@@ -260,10 +311,12 @@ function dodajPunkty() {
 	} else if(punkty < 10000) {
 		punktyBox.innerHTML =  punkty;
 	}
+	przyspiesz();
 }
 
 function sprawdzCzy() {
 	var poj = 1;
+	var linia = 1;
 	for( var y = 1; y <= wys; y++ ) {
 		var caly = 0;
 		for( var x = 1; x <= szer; x++ ) {
@@ -272,7 +325,17 @@ function sprawdzCzy() {
 			if( tabTetris[poj] == 2) {
 				caly++;
 				if( caly == szer ) {
-					punkty += 10;
+					if (linia == 1){
+						punkty += 10;
+					}else if(linia == 2){
+						punkty += 15;
+					}else if(linia == 3){
+						punkty += 20;
+					}else if(linia == 4){
+						punkty += 30;
+					}
+					linia++;
+
 					dodajPunkty();
 					
 					var poj2 = 1;
@@ -320,7 +383,7 @@ function startstop() {
 	if( strtstp.innerHTML == "STOP" ) {
 		strtstp.innerHTML = "START";
 		clearInterval(z);
-	} else if(strtstp.innerHTML = "START") {
+	} else if(strtstp.innerHTML == "START") {
 		strtstp.innerHTML = "STOP";
 		z = setInterval(move, gameSpeed);
 	}
@@ -343,6 +406,8 @@ function ruchWPrawo (){
 }
 
 window.addEventListener('keydown', function(event) {
+  var strtstp = document.getElementById("startstop");
+  if (strtstp.innerHTML == "STOP"){
 	switch (event.keyCode) {
 		case 37: //Left
 			//osum plus jeden = osum p jed = osumpjed.. itd
@@ -739,7 +804,7 @@ window.addEventListener('keydown', function(event) {
 		case 40: // Down
 			ruchDol();
 		break;
-		
+		/*
 		case 13: // Enter
 			tabTetris[osum] = 2;
 			tabTetris[tsum] = 2;
@@ -751,5 +816,7 @@ window.addEventListener('keydown', function(event) {
 			wyborFigury();
 			Figury(random);
 		break;
+		*/
 	}
+  }
 }, false);
