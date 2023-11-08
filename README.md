@@ -1,4 +1,4 @@
-# Tetris - School Project (2018)
+# 👶🏽 Tetris - School Project (2018)
 ![Showcase](./assets/video.gif)
 
 ## Description
